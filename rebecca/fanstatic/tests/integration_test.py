@@ -17,7 +17,7 @@ class FunctionalTests(unittest.TestCase):
 
     def test_directive(self):
         self.config.include('rebecca.fanstatic')
-        self.assertTrue(hasattr(self.config, 'add_fanstatic_library'))
+        self.assertTrue(hasattr(self.config, 'add_fanstatic_resources'))
 
     def test_notify(self):
         from pyramid.events import BeforeRender
@@ -25,7 +25,7 @@ class FunctionalTests(unittest.TestCase):
 
 
         self.config.include('rebecca.fanstatic')
-        self.config.add_fanstatic_library(['js.jquery.jquery',], r'.*\.mak')
+        self.config.add_fanstatic_resources(['js.jquery.jquery',], r'.*\.mak')
 
         request = testing.DummyRequest(registry=self.config.registry)
         system_values = {'request': request, 'renderer_name': 'test.mak'}

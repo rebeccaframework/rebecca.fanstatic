@@ -1,8 +1,21 @@
 rebecca.fanstatic
 ========================
 
-fanstatic utilities.
+fanstatic utilities for `pyramid web framework <http://www.pyramidproject.org>`_.
 
+``add_fanstatic_resources`` directive
+---------------------------------------------------
+
+Add fanstatic resources for renderers matched to ``renderer_name_pattern``.
+
+
+usage::
+
+ config.include('rebecca.fanstatic')
+ config.add_fanstatic_resources(['js.jquery.jquery', 'js.jqueryui.jqueryui'], r'.*\.pt')
+
+`list_fanstatic` command
+-----------------------------
 
 ::
 

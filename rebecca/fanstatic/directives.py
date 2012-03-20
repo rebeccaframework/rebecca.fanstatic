@@ -2,7 +2,7 @@ import re
 from .interfaces import IFanstaticSet
 from .apis import FanstaticSet
 
-def add_fanstatic_library(config, resources, renderer_name_pattern):
+def add_fanstatic_resources(config, resources, renderer_name_pattern):
     """ Add fanstatic resources for renderers matched to `renderer_name_pattern`.
 
     Don't use directly this function. 
