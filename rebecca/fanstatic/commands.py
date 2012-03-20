@@ -2,15 +2,15 @@ import os
 import shutil
 import argparse
 import pkg_resources
+from fanstatic.registry import get_library_registry
 
 def iter_all_libraries():
-    return pkg_resources.iter_entry_points('fanstatic.libraries')
+    reg = get_library_registry()
+    return reg.itervalues()
 
-def iter_libraries(eggspecs):
-    for eggspec in eggspecs:
-        dist, name = eggspec.split(":")
-        ep = pkg_resources.get_entry_info(dist, 'fanstatic.libraries', name)
-        yield ep
+def iter_libraries(names):
+    reg = get_library_registry()
+    return (v for v in reg.itervalues() if v.name in names)
 
 def list_fanstatic():
     parser = argparse.ArgumentParser()
@@ -27,8 +27,7 @@ def list_fanstatic():
     else:
         lib_iter = iter_libraries(args.egg_spec)
 
-    for ep in lib_iter:
-        library = ep.load()
+    for library in lib_iter:
         copy_fanstatic_resources(destbasedir, library)
 
 def copy_fanstatic_resources(destbasedir, library):
