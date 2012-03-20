@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-__version__ = '0.1'
+__version__ = '0.1.1'
 __author__ = 'Atsushi Odagiri'
 
 requires = [
@@ -45,6 +45,7 @@ setup(name="rebecca.fanstatic",
     author=__author__,
     author_email="aodagx@gmail.com",
     url="http://github.com/rebeccaframework/rebecca.fanstatic",
+    packages=find_packages(),
 
     install_requires=requires,
     entry_points=points,
