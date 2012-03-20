@@ -25,6 +25,15 @@ class FanstaticSet(object):
         for f in self.fanstatics:
             f(renderer_name)
 
+    def iter_resources(self):
+        printed = set()
+        for f in self.fanstatics:
+            for r in f.resources:
+                lib = r.library
+                if lib not in printed:
+                    yield lib
+                    printed.add(lib)
+
 class Fanstatic(object):
     def __init__(self, resources, renderer_name_regex):
         self.resources = resources
