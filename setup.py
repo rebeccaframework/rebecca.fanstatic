@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 __author__ = 'Atsushi Odagiri'
 
 requires = [
@@ -46,6 +46,7 @@ setup(name="rebecca.fanstatic",
     author_email="aodagx@gmail.com",
     url="http://github.com/rebeccaframework/rebecca.fanstatic",
     packages=find_packages(),
+    namespace_packages=['rebecca'],
 
     install_requires=requires,
     entry_points=points,
@@ -55,5 +56,8 @@ setup(name="rebecca.fanstatic",
     description="fanstatic utilities",
     long_description=readme+"\r\n"+changes,
     license="MIT",
+    package_data={
+        'rebecca.fanstatic.tests': ['dummy_resources/*.js', 'dummy_resources/*.css'],
+    },
 )
 
